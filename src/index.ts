@@ -1,12 +1,17 @@
 import { Request, Response } from "express";
 import { query } from "./Xternal_Services/database/db";
 import emailService from "./Email_Service/Index.controller";
+import productService from "./Product_Service/Index.controller";
 const express = require("express");
 const app = express();
 
 app.get("/", async (req: Request, res: Response) => {
-	const result = await emailService.sendVerifyEmail("mute@localhost");
-	console.log("Email sent successfully:", result);
+	const deleteSuccess = await productService.deleteProduct(2);
+	if (!deleteSuccess) {
+		console.error("Failed to delete product.");
+		return res.status(500).send("Error deleting product");
+	}
+
 	res.send("Hello World!");
 });
 
