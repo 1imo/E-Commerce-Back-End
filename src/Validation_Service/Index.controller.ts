@@ -4,19 +4,80 @@ import { loggingService } from "../Logging_Service/Index.controller";
 
 dotenv.config();
 
+/**
+ * Interface defining the methods that a ValidationService class must implement.
+ * @interface ValidationService_ControllerModel
+ */
 interface ValidationService_ControllerModel {
+	/**
+	 * Checks if the provided email address matches the format.
+	 * @param {string} email - The email address to validate.
+	 * @returns {boolean} True if the email format is valid, otherwise false.
+	 */
 	checkEmailFormat(email: string): boolean;
+
+	/**
+	 * Checks if the provided password matches the specified format criteria.
+	 * @param {string} password - The password to validate.
+	 * @returns {boolean} True if the password format is valid, otherwise false.
+	 */
 	checkPasswordFormat(password: string): boolean;
+
+	/**
+	 * Checks if the provided name matches the specified format criteria.
+	 * @param {string} name - The name to validate.
+	 * @returns {boolean} True if the name format is valid, otherwise false.
+	 */
 	checkNameFormat(name: string): boolean;
+
+	/**
+	 * Checks if the provided sex identifier is one of the allowed values ('M', 'F', 'O').
+	 * @param {string} sex - The sex identifier to validate.
+	 * @returns {boolean} True if the sex format is valid, otherwise false.
+	 */
 	checkSexFormat(sex: string): boolean;
+
+	/**
+	 * Checks if the provided price is a valid non-negative number.
+	 * @param {number} price - The price to validate.
+	 * @returns {boolean} True if the price format is valid, otherwise false.
+	 */
 	checkPriceFormat(price: number): boolean;
+
+	/**
+	 * Checks if the provided stock quantity is a valid non-negative integer.
+	 * @param {number} stock - The stock quantity to validate.
+	 * @returns {boolean} True if the stock format is valid, otherwise false.
+	 */
 	checkStockFormat(stock: number): boolean;
+
+	/**
+	 * Checks if the provided API key matches the expected format and criteria.
+	 * @param {string} apiKey - The API key to validate.
+	 * @returns {boolean} True if the API key format is valid, otherwise false.
+	 */
 	checkAPIKeyFormat(apiKey: string): boolean;
-	checkRefreshTokenFormat(refreshtoken: string): boolean;
+
+	/**
+	 * Checks if the provided refresh token matches the expected format and criteria.
+	 * @param {string} refreshToken - The refresh token to validate.
+	 * @returns {boolean} True if the refresh token format is valid, otherwise false.
+	 */
+	checkRefreshTokenFormat(refreshToken: string): boolean;
+
+	/**
+	 * Checks if the provided token's signature is valid using the configured JWT secret.
+	 * @param {string} token - The JWT token to validate.
+	 * @returns {boolean} True if the token signature is valid, otherwise false.
+	 */
 	checkTokenSignature(token: string): boolean;
-	// sanitizeInput(input: string): string;
 }
 
+/**
+ * Implementation of ValidationService class that validates various formats and criteria.
+ * @class ValidationService
+ * @implements {ValidationService_ControllerModel}
+ */
 class ValidationService implements ValidationService_ControllerModel {
 	checkEmailFormat(email: string): boolean {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

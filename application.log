@@ -484,3 +484,4 @@
 28/Jun/2024:17:09:02 [APPLICATION] Attempting to retrieve product with ID 5
 28/Jun/2024:17:09:02 [APPLICATION] Fetching products bought with product ID 1
 28/Jun/2024:17:09:02 [APPLICATION] Products bought with product ID 1 fetched successfully
+28/Jun/2024:17:11:57 [APPLICATION] Connected to MySQL database successfully
