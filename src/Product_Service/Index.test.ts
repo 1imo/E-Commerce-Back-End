@@ -133,19 +133,19 @@ describe("ProductService", () => {
 		const result = await productService.updateProduct(existingProduct);
 		expect(result).toBe(false);
 	});
-
+	5;
 	// DELETE PRODUCT TESTS
 	it("should delete an existing product", async () => {
 		queryStub.resolves({ affectedRows: 1 });
 
-		const result = await productService.deleteProduct(3);
+		const result = await productService.deleteProduct(5);
 		expect(result).toBe(true);
 
-		queryStub.withArgs("SELECT * FROM Product WHERE ID = ?", [3]).resolves([]);
-		queryStub.withArgs("SELECT * FROM Review WHERE ProductID = ?", [3]).resolves([]);
-		queryStub.withArgs("SELECT * FROM BasketProduct WHERE ProductID = ?", [3]).resolves([]);
+		queryStub.withArgs("SELECT * FROM Product WHERE ID = ?", [5]).resolves([]);
+		queryStub.withArgs("SELECT * FROM Review WHERE ProductID = ?", [5]).resolves([]);
+		queryStub.withArgs("SELECT * FROM BasketProduct WHERE ProductID = ?", [5]).resolves([]);
 
-		const fetchedProduct = await productService.getProduct(3);
+		const fetchedProduct = await productService.getProduct(5);
 		expect(fetchedProduct).toBe(false);
 	});
 

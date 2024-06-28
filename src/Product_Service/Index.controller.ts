@@ -1,3 +1,14 @@
+/**
+ * @module ProductService
+ * A module providing functionality for managing product data in the database.
+ *
+ * This module exports a singleton instance of the `ProductService` class, which
+ * offers methods for creating, updating, deleting, and retrieving product
+ * information. It also provides functionality to retrieve products frequently
+ * purchased together with a given product.
+ */
+
+import { loggingService } from "../Logging_Service/Index.controller";
 import { query } from "../Xternal_Services/database/db";
 
 /**
@@ -67,12 +78,14 @@ interface Product_ControllerModel {
  */
 class ProductService implements Product_ControllerModel {
 	public async createProduct(data: Product_DataModel): Promise<boolean> {
+		loggingService.application("Attempting to create a new product", __filename);
 		if (
 			!data.Name ||
 			!data.Description ||
 			typeof data.Price !== "number" ||
 			typeof data.Stock !== "number"
 		) {
+			loggingService.error("Invalid product data provided for creation", __filename);
 			return false;
 		}
 		try {
@@ -87,14 +100,20 @@ class ProductService implements Product_ControllerModel {
 					data.ParentID ?? null,
 				]
 			);
+			loggingService.application("Product created successfully", __filename);
 			return true;
 		} catch (error) {
+			loggingService.error(`Error creating product: ${error}`, __filename);
 			return false;
 		}
 	}
 
 	public async updateProduct(data: Product_DataModel): Promise<boolean> {
-		if (!data.ID) return false;
+		loggingService.application(`Attempting to update product with ID ${data.ID}`, __filename);
+		if (!data.ID) {
+			loggingService.error("Product ID is required for update", __filename);
+			return false;
+		}
 
 		try {
 			await query(
@@ -109,55 +128,83 @@ class ProductService implements Product_ControllerModel {
 					data.ID,
 				]
 			);
+			loggingService.application(
+				`Product with ID ${data.ID} updated successfully`,
+				__filename
+			);
 			return true;
 		} catch (error) {
+			loggingService.error(`Error updating product with ID ${data.ID}: ${error}`, __filename);
 			return false;
 		}
 	}
 
 	public async deleteProduct(id: Number): Promise<boolean> {
+		loggingService.application(`Attempting to delete product with ID ${id}`, __filename);
 		try {
 			await query("DELETE FROM Review WHERE ProductID = ?", [id]);
 			await query("DELETE FROM BasketProduct WHERE ProductID = ?", [id]);
 			await query("DELETE FROM Product WHERE ID = ?", [id]);
+			loggingService.application(`Product with ID ${id} deleted successfully`, __filename);
 			return true;
 		} catch (error) {
 			console.log(error);
+			loggingService.error(`Error deleting product with ID ${id}: ${error}`, __filename);
 			return false;
 		}
 	}
 
 	public async getProduct(id: number): Promise<Product_DataModel | boolean> {
-		const results = await query<Product_DataModel>("SELECT * FROM Product WHERE ID = ?", [id]);
-		if (results.length > 0) {
-			return results[0];
-		} else {
+		loggingService.application(`Attempting to retrieve product with ID ${id}`, __filename);
+		try {
+			const results = await query<Product_DataModel>("SELECT * FROM Product WHERE ID = ?", [
+				id,
+			]);
+			const product: Product_DataModel = results[0];
+			if (!product) throw new Error("Product not found"); // Not nice but logs can be later analysed
+			loggingService.application(`Product with ID ${id} retrieved successfully`, __filename);
+			return product;
+		} catch (error) {
+			loggingService.error(`Product with ID ${id} not found`, __filename);
 			return false;
 		}
 	}
 
 	public async getBoughtWith(id: Number): Promise<Product_DataModel[]> {
-		const sqlQuery = `
-		    SELECT p.*
-		    FROM Product p
-		    WHERE p.ID IN (
-		        SELECT bp.ProductID 
-		        FROM BasketProduct bp
-		        WHERE bp.BasketID IN (
-		            SELECT bp2.BasketID
-		            FROM BasketProduct bp2
-		            WHERE bp2.ProductID = ?
-		        )
-		        AND bp.ProductID <> ? 
-		    )
-		`;
+		loggingService.application(`Fetching products bought with product ID ${id}`, __filename);
+		try {
+			const sqlQuery = `
+			    SELECT p.*
+			    FROM Product p
+			    WHERE p.ID IN (
+			        SELECT bp.ProductID 
+			        FROM BasketProduct bp
+			        WHERE bp.BasketID IN (
+			            SELECT bp2.BasketID
+			            FROM BasketProduct bp2
+			            WHERE bp2.ProductID = ?
+			        )
+			        AND bp.ProductID <> ? 
+			    )
+			`;
 
-		const products = (await query<Product_DataModel[][]>(sqlQuery, [
-			id,
-			id,
-		])) as unknown as Product_DataModel[];
+			const products = (await query<Product_DataModel[][]>(sqlQuery, [
+				id,
+				id,
+			])) as unknown as Product_DataModel[];
 
-		return products;
+			loggingService.application(
+				`Products bought with product ID ${id} fetched successfully`,
+				__filename
+			);
+			return products;
+		} catch (error) {
+			loggingService.error(
+				`Error fetching products bought with product ID ${id}: ${error}`,
+				__filename
+			);
+			return [];
+		}
 	}
 }
 

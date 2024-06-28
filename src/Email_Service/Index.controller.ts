@@ -1,6 +1,3 @@
-import { Transporter } from "nodemailer";
-import * as nodemailer from "nodemailer";
-
 /**
  * Email Service
  *
@@ -10,21 +7,58 @@ import * as nodemailer from "nodemailer";
  * @module EmailService
  */
 
+import { Transporter } from "nodemailer";
+import * as nodemailer from "nodemailer";
+import { loggingService } from "../Logging_Service/Index.controller";
+
 /**
  * Model defining the contract for the EmailService controller.
  *
  * @interface ControllerModel
  */
 interface ControllerModel {
+	/**
+	 * Sends a verification email to the specified email address.
+	 * @param {string} email - The email address to send the verification email to.
+	 * @returns {Promise<boolean>} - A promise that resolves to `true` if the email was sent successfully, `false` otherwise.
+	 */
 	sendVerifyEmail(email: string): Promise<boolean>;
+	/**
+	 * Sends a password reset email to the specified email address.
+	 * @param {string} email - The email address to send the password reset email to.
+	 * @returns {Promise<boolean>} - A promise that resolves to `true` if the email was sent successfully, `false` otherwise.
+	 */
 	sendPasswordReset(email: string): Promise<boolean>;
+	/**
+	 * Sends a basket follow-up email to the specified email address.
+	 * @param {string} email - The email address to send the basket follow-up email to.
+	 * @returns {Promise<boolean>} - A promise that resolves to `true` if the email was sent successfully, `false` otherwise.
+	 */
 	sendBasketFollowUp(email: string): Promise<boolean>;
+	/**
+	 * Sends a campaign email to the specified email address.
+	 * @param {string} email - The email address to send the campaign email to.
+	 * @returns {Promise<boolean>} - A promise that resolves to `true` if the email was sent successfully, `false` otherwise.
+	 */
 	sendCampaign(email: string): Promise<boolean>;
+	/**
+	 * Sends a customer service email to the specified email address.
+	 * @param {string} email - The email address to send the customer service email to.
+	 * @param {string} subject - The subject of the customer service email.
+	 * @param {string | HTMLElement} body - The body of the customer service email (can be plain text or HTML).
+	 * @returns {Promise<boolean>} - A promise that resolves to `true` if the email was sent successfully, `false` otherwise.
+	 */
 	sendCustomerServiceEmail(
 		email: string,
 		subject: string,
 		body: string | HTMLElement
 	): Promise<boolean>;
+	/**
+	 * Validates the format of the given email address.
+	 * @param {string} email - The email address to validate.
+	 * @returns {boolean} - Returns `true` if the email format is valid, `false` otherwise.
+	 */
+	isValidEmailFormat(email: string): boolean;
 }
 
 /**
@@ -63,8 +97,13 @@ class EmailService implements ControllerModel {
 
 		try {
 			await this.transport?.sendMail(mailOptions);
+			loggingService.application(
+				`Email sent successfully to ${to} with subject "${subject}"`,
+				__filename
+			);
 			return true;
 		} catch (error) {
+			loggingService.error(`Failed to send email to ${to}: ${error}`, __filename, undefined);
 			return false;
 		}
 	}
@@ -91,6 +130,12 @@ class EmailService implements ControllerModel {
 		body: string | HTMLElement
 	): Promise<boolean> {
 		return this.sendEmail(email, subject, body.toString());
+	}
+
+	isValidEmailFormat(email: string): boolean {
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+		return emailRegex.test(email);
 	}
 }
 
