@@ -27,7 +27,7 @@ describe("LoggingService", () => {
 			loggingService.access("Test access message", "testfile.js", reqMock as Request);
 
 			const expectedLogEntry =
-				"[TEST_TIMESTAMP] [ACCESS] GET /test Test access message [Client IP: 127.0.0.1] [Origin File: testfile.js]";
+				"[TEST_TIMESTAMP] [ACCESS] GET /test Test access message [Client IP: 127.0.0.1]";
 			expect(writeFileStub.calledOnceWith("./access.log", expectedLogEntry + "\n")).toBe(
 				true
 			);
@@ -71,8 +71,7 @@ describe("LoggingService", () => {
 		it("should log application entries with correct format and file path", () => {
 			loggingService.application("Test application message", "testfile.js");
 
-			const expectedLogEntry =
-				"[TEST_TIMESTAMP] [APPLICATION] Test application message [Origin File: testfile.js]";
+			const expectedLogEntry = "[TEST_TIMESTAMP] [APPLICATION] Test application message";
 			expect(writeFileStub.calledOnceWith("./application.log", expectedLogEntry + "\n")).toBe(
 				true
 			);

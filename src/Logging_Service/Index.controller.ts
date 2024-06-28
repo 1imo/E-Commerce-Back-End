@@ -95,7 +95,7 @@ export class LoggingService implements LoggingService_ControllerModel {
 	public access(message: string, originFilePath: string, req: Request | undefined): void {
 		const logEntry = `${this.timestamp()} [ACCESS] ${req?.method} ${
 			req?.originalUrl
-		} ${message} [Client IP: ${req?.ip}] [Origin File: ${originFilePath}]`;
+		} ${message} [Client IP: ${req?.ip}]`; // Removing originating filepath to prevent fingerprinting.
 		this.writeToFile("./access.log", logEntry);
 	}
 
@@ -117,7 +117,7 @@ export class LoggingService implements LoggingService_ControllerModel {
 	}
 
 	public application(message: string, originFilePath: string): void {
-		const logEntry = `${this.timestamp()} [APPLICATION] ${message} [Origin File: ${originFilePath}]`;
+		const logEntry = `${this.timestamp()} [APPLICATION] ${message}`;
 		this.writeToFile("./application.log", logEntry);
 	}
 
