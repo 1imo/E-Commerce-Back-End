@@ -1,4 +1,3 @@
-import { promisify } from "util";
 import { loggingService } from "../Logging_Service/Index.controller";
 import validationService from "../Validation_Service/Index.controller";
 import { query } from "../Xternal_Services/database/db";
@@ -6,13 +5,63 @@ import redis from "../Xternal_Services/redis/db";
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+/**
+ * Authentication Service
+ *
+ * This module provides a service for managing user authentication, including session creation, verification, deletion, and refresh.
+ * It interacts with the database for user credentials, Redis for session storage, and external services for logging and validation.
+ *
+ * @module AuthService
+ */
+
+/**
+ * Model defining the contract for the AuthService controller.
+ *
+ * @interface AuthService_ControllerModel
+ */
 interface AuthService_ControllerModel {
+	/**
+	 * Creates a new user session based on valid credentials.
+	 * @param {string} email - The user's email address.
+	 * @param {string} password - The user's password.
+	 * @returns {Promise<string | boolean>} A Promise that resolves to a string containing the session and refresh tokens if successful, or false if authentication fails.
+	 * @throws {Error} If email or password format is invalid.
+	 */
 	createSession(email: string, password: string): Promise<string | boolean>;
+
+	/**
+	 * Verifies the validity of a given session token.
+	 * @param {string} sessionToken - The session token to verify.
+	 * @returns {Promise<boolean>} A Promise that resolves to true if the session is valid, false otherwise.
+	 * @throws {Error} If token signature is invalid or session is not found.
+	 */
 	verifySession(sessionToken: string): Promise<boolean>;
+
+	/**
+	 * Deletes a user session associated with the given token.
+	 * @param {string} sessionToken - The session token to delete.
+	 * @returns {Promise<boolean>} A Promise that resolves to true if the session is deleted successfully, false otherwise.
+	 * @throws {Error} If session deletion fails.
+	 */
 	deleteSession(sessionToken: string): Promise<boolean>;
+
+	/**
+	 * Refreshes a user session based on a valid refresh token.
+	 * @param {string} refreshToken - The refresh token to use for refreshing the session.
+	 * @returns {Promise<string | boolean>} A Promise that resolves to a new session token if successful, or false if refresh fails.
+	 * @throws {Error} If refresh token format is invalid or token is not found.
+	 */
 	refreshSession(refreshToken: string): Promise<string | boolean>;
 }
 
+/**
+ * Authentication Service Controller
+ *
+ * Implements the `AuthService_ControllerModel` interface and provides concrete implementations for authentication operations.
+ *
+ * @class
+ * @implements AuthService_ControllerModel
+ */
 class AuthService implements AuthService_ControllerModel {
 	public async createSession(email: string, password: string): Promise<string | boolean> {
 		if (
