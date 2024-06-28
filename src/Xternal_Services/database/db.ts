@@ -26,7 +26,9 @@ export const query = async <T>(sql: string, params?: any[]): Promise<T[]> => {
 	}
 
 	try {
-		const [rows] = await pool.query(sql, params);
+		const escapedParams = params ? params.map(mysql.escape) : [];
+		const formattedSql = mysql.format(sql, escapedParams);
+		const [rows] = await pool.query(formattedSql);
 		return rows as T[];
 	} catch (error) {
 		throw error;
