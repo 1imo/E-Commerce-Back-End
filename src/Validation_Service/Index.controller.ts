@@ -80,34 +80,48 @@ interface ValidationService_ControllerModel {
  */
 class ValidationService implements ValidationService_ControllerModel {
 	checkEmailFormat(email: string): boolean {
+		if (!email) return false;
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		return emailRegex.test(email);
 	}
 
 	checkPasswordFormat(password: string): boolean {
+		if (!password) return false;
 		const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&* ])[\w!@#$%^& *]{8,}$/;
 		return passwordRegex.test(password);
 	}
 
 	checkNameFormat(name: string): boolean {
+		if (!name) return false;
 		const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 		return nameRegex.test(name);
 	}
 
 	checkSexFormat(sex: string): boolean {
+		if (!sex) return false;
 		const allowed = ["M", "F", "O"];
-		return allowed.includes(sex) || false;
+		return allowed.includes(sex);
 	}
 
 	checkPriceFormat(price: number): boolean {
-		return !isNaN(price) && price >= 0;
+		if (price === undefined || price === null) return false;
+		if (!Number.isFinite(price) || price < 0) return false;
+
+		const priceString = price.toString();
+		const decimalIndex = priceString.indexOf(".");
+		if (decimalIndex === -1) return false;
+
+		const decimals = priceString.substring(decimalIndex + 1);
+		return decimals.length === 2 && /^\d+$/.test(decimals);
 	}
 
 	checkStockFormat(stock: number): boolean {
+		if (stock === undefined || stock === null) return false;
 		return Number.isInteger(stock) && stock >= 0;
 	}
 
 	checkAPIKeyFormat(apiKey: string): boolean {
+		if (!apiKey) return false;
 		loggingService.application("Validating API key format", __filename);
 		try {
 			if (apiKey.length !== 36) throw new Error("Invalid API key format");
@@ -126,6 +140,7 @@ class ValidationService implements ValidationService_ControllerModel {
 	}
 
 	checkRefreshTokenFormat(refreshToken: string): boolean {
+		if (!refreshToken) return false;
 		loggingService.application("Validating refresh token format", __filename);
 		try {
 			if (!this.checkAPIKeyFormat(refreshToken))
@@ -141,19 +156,18 @@ class ValidationService implements ValidationService_ControllerModel {
 	}
 
 	checkTokenSignature(token: string): boolean {
+		if (!token) return false;
 		loggingService.application("Validating token signature", __filename);
 		try {
-			if (!process.env.JWT_SECRET)
+			if (!process.env.SECRET_KEY)
 				throw new Error("JWT_SECRET is missing from environment variables!");
 
-			// const [tokenPayload, tokenSignature] = token.split(".");
-			// const expectedSignature = createHmac("sha256", process.env.JWT_SECRET)
-			// 	.update(tokenPayload)
-			// 	.digest("hex");
-			// loggingService.application(`Token signature: ${tokenSignature}`, __filename);
-			// return tokenSignature === expectedSignature;
-
-			return true;
+			const [tokenPayload, tokenSignature] = token.split(".");
+			const expectedSignature = createHmac("sha256", process.env.SECRET_KEY)
+				.update(tokenPayload)
+				.digest("hex");
+			loggingService.application(`Token signature: ${tokenSignature}`, __filename);
+			return tokenSignature === expectedSignature;
 		} catch (error) {
 			loggingService.error(`Error validating token signature: ${error}`, __filename);
 			return false;

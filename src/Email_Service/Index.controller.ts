@@ -58,7 +58,6 @@ interface ControllerModel {
 	 * @param {string} email - The email address to validate.
 	 * @returns {boolean} - Returns `true` if the email format is valid, `false` otherwise.
 	 */
-	isValidEmailFormat(email: string): boolean;
 }
 
 /**
@@ -130,12 +129,6 @@ class EmailService implements ControllerModel {
 		body: string | HTMLElement
 	): Promise<boolean> {
 		return this.sendEmail(email, subject, body.toString());
-	}
-
-	isValidEmailFormat(email: string): boolean {
-		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-		return emailRegex.test(email);
 	}
 }
 

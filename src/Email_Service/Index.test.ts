@@ -94,33 +94,4 @@ describe("EmailService", () => {
 		const result = await emailService.sendVerifyEmail("mute@localhost");
 		expect(result).toBe(false);
 	});
-
-	it("should return true for a valid email format", () => {
-		const validEmails = [
-			"test@example.com",
-			"user.name@domain.com",
-			"first.last@sub.domain.co.in",
-			"12345@domain.com",
-		];
-
-		validEmails.forEach((email) => {
-			const result = emailService.isValidEmailFormat(email);
-			expect(result).toBe(true);
-		});
-	});
-
-	it("should return false for invalid email formats", () => {
-		const invalidEmails = [
-			"invalidemail@",
-			"invalid.com",
-			"missing@atdotcom",
-			"spaces @ domain.com",
-			"@missingusername.com",
-		];
-
-		invalidEmails.forEach((email) => {
-			const result = emailService.isValidEmailFormat(email);
-			expect(result).toBe(false);
-		});
-	});
 });

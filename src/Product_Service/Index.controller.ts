@@ -9,6 +9,7 @@
  */
 
 import { loggingService } from "../Logging_Service/Index.controller";
+import validationService from "../Validation_Service/Index.controller";
 import { query } from "../Xternal_Services/database/db";
 
 /**
@@ -44,7 +45,7 @@ interface Product_ControllerModel {
 	 * @param {Product_DataModel} data - The updated product data.
 	 * @returns {Promise<boolean>} A promise that resolves to `true` if successful, `false` otherwise.
 	 */
-	updateProduct(data: Product_DataModel): Promise<boolean>;
+	updateProduct(data: Partial<Product_DataModel>): Promise<boolean>;
 
 	/**
 	 * @function deleteProduct
@@ -80,10 +81,10 @@ class ProductService implements Product_ControllerModel {
 	public async createProduct(data: Product_DataModel): Promise<boolean> {
 		loggingService.application("Attempting to create a new product", __filename);
 		if (
-			!data.Name ||
+			!validationService.checkNameFormat(data?.Name) ||
 			!data.Description ||
-			typeof data.Price !== "number" ||
-			typeof data.Stock !== "number"
+			!validationService.checkPriceFormat(data?.Price) ||
+			!validationService.checkStockFormat(data?.Stock)
 		) {
 			loggingService.error("Invalid product data provided for creation", __filename);
 			return false;
@@ -108,26 +109,74 @@ class ProductService implements Product_ControllerModel {
 		}
 	}
 
-	public async updateProduct(data: Product_DataModel): Promise<boolean> {
+	public async updateProduct(data: Partial<Product_DataModel>): Promise<boolean> {
 		loggingService.application(`Attempting to update product with ID ${data.ID}`, __filename);
+
 		if (!data.ID) {
 			loggingService.error("Product ID is required for update", __filename);
 			return false;
 		}
 
+		if (data.Name && !validationService.checkNameFormat(data.Name)) {
+			loggingService.error("Invalid name format", __filename);
+			return false;
+		}
+		if (data.Description && typeof data.Description !== "string") {
+			loggingService.error("Invalid description format", __filename);
+			return false;
+		}
+		if (data.Price !== undefined && !validationService.checkPriceFormat(data.Price)) {
+			loggingService.error("Invalid price format", __filename);
+			return false;
+		}
+		if (data.Stock !== undefined && !validationService.checkStockFormat(data.Stock)) {
+			loggingService.error("Invalid stock format", __filename);
+			return false;
+		}
+		if (
+			data.CategoryID !== undefined &&
+			(typeof data.CategoryID !== "number" || !Number.isInteger(data.CategoryID))
+		) {
+			loggingService.error("Invalid category ID format", __filename);
+			return false;
+		}
+		if (
+			data.ParentID !== undefined &&
+			(typeof data.ParentID !== "number" || !Number.isInteger(data.ParentID))
+		) {
+			loggingService.error("Invalid parent ID format", __filename);
+			return false;
+		}
+
 		try {
+			const rows = await query<Product_DataModel>("SELECT * FROM Product WHERE ID = ?", [
+				data.ID,
+			]);
+			const existingProduct = rows[0];
+
+			const updatedProduct: Product_DataModel = {
+				...existingProduct,
+				...(data.Name && { Name: data.Name }),
+				...(data.Description && { Description: data.Description }),
+				...(data.Price !== undefined && { Price: data.Price }),
+				...(data.Stock !== undefined && { Stock: data.Stock }),
+				...(data.CategoryID !== undefined && { CategoryID: data.CategoryID }),
+				...(data.ParentID !== undefined && { ParentID: data.ParentID }),
+			};
+
 			await query(
 				"UPDATE Product SET Name = ?, Description = ?, Price = ?, Stock = ?, CategoryID = ?, ParentID = ? WHERE ID = ?",
 				[
-					data.Name,
-					data.Description,
-					data.Price,
-					data.Stock,
-					data.CategoryID ?? null,
-					data.ParentID ?? null,
-					data.ID,
+					updatedProduct.Name,
+					updatedProduct.Description,
+					updatedProduct.Price,
+					updatedProduct.Stock,
+					updatedProduct.CategoryID ?? null,
+					updatedProduct.ParentID ?? null,
+					updatedProduct.ID,
 				]
 			);
+
 			loggingService.application(
 				`Product with ID ${data.ID} updated successfully`,
 				__filename

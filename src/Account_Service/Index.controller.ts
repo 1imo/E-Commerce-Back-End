@@ -1,5 +1,6 @@
 import emailService from "../Email_Service/Index.controller";
 import { loggingService } from "../Logging_Service/Index.controller";
+import validationService from "../Validation_Service/Index.controller";
 import { query } from "../Xternal_Services/database/db";
 
 /**
@@ -22,7 +23,7 @@ interface AccountService_DataModel {
 	FirstName: string;
 	LastName: string;
 	Sex: string;
-	Role?: "ADMIN" | "USER";
+	Role?: string;
 }
 
 /**
@@ -80,24 +81,36 @@ class AccountService implements AccountService_ControllerModel {
 	public async createAccount(data: Partial<AccountService_DataModel>): Promise<boolean> {
 		loggingService.application("Creating new account", __filename);
 
-		if (!data.Email || !emailService.isValidEmailFormat(data.Email)) {
+		if (!data.Email || !validationService.checkEmailFormat(data?.Email)) {
 			loggingService.error("Invalid or missing email format", __filename);
 			return false;
 		}
 
-		if (!data.Password) {
+		if (!data.Password || !validationService.checkPasswordFormat(data?.Password)) {
 			// TODO - Password Validation from future Auth module
 			loggingService.error("Password is required", __filename);
 			return false;
 		}
 
-		if (!data.Sex || !["M", "F", "O"].includes(data.Sex)) {
+		if (!data.Sex || !validationService.checkSexFormat(data?.Sex)) {
 			loggingService.error("Invalid value for Sex. Must be 'M', 'F', or 'O'", __filename);
 			return false;
 		}
 
-		if (!data.FirstName || !data.LastName) {
-			loggingService.error("Names are required", __filename);
+		if (!data.FirstName) {
+			loggingService.error("First name is required", __filename);
+			return false;
+		}
+		if (!validationService.checkNameFormat(data.FirstName)) {
+			loggingService.error("Invalid first name format", __filename);
+			return false;
+		}
+		if (!data.LastName) {
+			loggingService.error("Last name is required", __filename);
+			return false;
+		}
+		if (!validationService.checkNameFormat(data.LastName)) {
+			loggingService.error("Invalid last name format", __filename);
 			return false;
 		}
 
@@ -122,10 +135,36 @@ class AccountService implements AccountService_ControllerModel {
 		}
 	}
 
+	// I am aware that anyone with an ID can update any account, but the Auth module shouold handle this
 	public async updateAccountDetails(data: Partial<AccountService_DataModel>): Promise<boolean> {
 		loggingService.application("Updating account details", __filename);
 		if (!data.ID) {
 			loggingService.error("Account ID is required for update", __filename);
+			return false;
+		}
+
+		if (data.Email && !validationService.checkEmailFormat(data.Email)) {
+			loggingService.error("Invalid or missing email", __filename);
+			return false;
+		}
+
+		if (data.Password && !validationService.checkPasswordFormat(data.Password)) {
+			loggingService.error("Invalid or missing password", __filename);
+			return false;
+		}
+
+		if (data.FirstName && !validationService.checkNameFormat(data.FirstName)) {
+			loggingService.error("Invalid or missing first name", __filename);
+			return false;
+		}
+
+		if (data.LastName && !validationService.checkNameFormat(data.LastName)) {
+			loggingService.error("Invalid or missing last name", __filename);
+			return false;
+		}
+
+		if (data.Sex && !validationService.checkSexFormat(data.Sex)) {
+			loggingService.error("Invalid or missing sex", __filename);
 			return false;
 		}
 
@@ -178,6 +217,9 @@ class AccountService implements AccountService_ControllerModel {
 	public async verifyAccount(email: string): Promise<boolean> {
 		loggingService.application("Verifying account", __filename);
 		try {
+			if (!email || !validationService.checkEmailFormat(email))
+				throw new Error("Invalid email format");
+
 			await query("UPDATE Account SET Verified = true WHERE Email = ?", [email]);
 			loggingService.application("Account verified successfully", __filename);
 			return true;
