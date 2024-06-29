@@ -49,7 +49,7 @@ interface ValidationService_ControllerModel {
 	 * @param {number} stock - The stock quantity to validate.
 	 * @returns {boolean} True if the stock format is valid, otherwise false.
 	 */
-	checkStockFormat(stock: number): boolean;
+	checkIsWholePositiveNumberFormat(stock: number): boolean;
 
 	/**
 	 * Checks if the provided API key matches the expected format and criteria.
@@ -71,6 +71,7 @@ interface ValidationService_ControllerModel {
 	 * @returns {boolean} True if the token signature is valid, otherwise false.
 	 */
 	checkTokenSignature(token: string): boolean;
+	checkDiscountType(type: string): boolean;
 }
 
 /**
@@ -115,7 +116,7 @@ class ValidationService implements ValidationService_ControllerModel {
 		return decimals.length === 2 && /^\d+$/.test(decimals);
 	}
 
-	checkStockFormat(stock: number): boolean {
+	checkIsWholePositiveNumberFormat(stock: number): boolean {
 		if (stock === undefined || stock === null) return false;
 		return Number.isInteger(stock) && stock >= 0;
 	}
@@ -172,6 +173,12 @@ class ValidationService implements ValidationService_ControllerModel {
 			loggingService.error(`Error validating token signature: ${error}`, __filename);
 			return false;
 		}
+	}
+
+	checkDiscountType(type: string): boolean {
+		if (!type) return false;
+		const allowed = ["MULTIBUY", "MULTIITEM", "PERCENTAGEOFF", "PERCENTAGEOFFTOTAL"];
+		return allowed.includes(type);
 	}
 }
 

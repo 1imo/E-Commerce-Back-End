@@ -2541,3 +2541,611 @@
 28/Jun/2024:22:47:08 [APPLICATION] Session refreshed successfully
 28/Jun/2024:22:47:08 [APPLICATION] Validating refresh token format
 28/Jun/2024:22:47:08 [APPLICATION] Validating API key format
+29/Jun/2024:15:49:28 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:15:49:28 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:15:49:28 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:15:49:28 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:15:49:28 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:15:49:32 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:15:49:32 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:15:49:32 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:15:49:32 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:15:49:32 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:15:49:33 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to create a new product
+29/Jun/2024:15:49:33 [APPLICATION] Product created successfully
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to create a new product
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to create a new product
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:15:49:33 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:15:49:33 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:15:49:33 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:15:49:33 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:15:49:33 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:15:49:33 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:15:49:33 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:15:49:33 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:15:49:33 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:15:49:33 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:15:49:33 [APPLICATION] Session verified successfully
+29/Jun/2024:15:49:33 [APPLICATION] Validating token signature
+29/Jun/2024:15:49:33 [APPLICATION] Token signature: undefined
+29/Jun/2024:15:49:33 [APPLICATION] Session deleted successfully
+29/Jun/2024:15:49:33 [APPLICATION] Session refreshed successfully
+29/Jun/2024:15:49:33 [APPLICATION] Validating refresh token format
+29/Jun/2024:15:49:33 [APPLICATION] Validating API key format
+29/Jun/2024:15:51:13 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:15:51:13 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:15:51:13 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:15:51:13 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:15:51:13 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:15:51:17 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:15:51:17 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:15:51:17 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:15:51:17 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:15:51:17 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:15:51:17 [APPLICATION] Validating API key format
+29/Jun/2024:15:51:17 [APPLICATION] Validating API key format
+29/Jun/2024:15:51:17 [APPLICATION] Validating refresh token format
+29/Jun/2024:15:51:17 [APPLICATION] Validating API key format
+29/Jun/2024:15:51:17 [APPLICATION] Validating token signature
+29/Jun/2024:15:51:17 [APPLICATION] Token signature: undefined
+29/Jun/2024:15:51:17 [APPLICATION] Validating refresh token format
+29/Jun/2024:15:51:17 [APPLICATION] Validating API key format
+29/Jun/2024:15:51:17 [APPLICATION] Validating token signature
+29/Jun/2024:15:51:17 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:15:51:17 [APPLICATION] Validating token signature
+29/Jun/2024:15:51:17 [APPLICATION] Token signature: token
+29/Jun/2024:15:51:17 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to create a new product
+29/Jun/2024:15:51:17 [APPLICATION] Product created successfully
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to create a new product
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to create a new product
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:15:51:17 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:15:51:17 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:15:51:17 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:15:51:17 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:15:51:17 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:15:51:17 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:15:51:17 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:15:51:17 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:15:51:17 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:15:51:17 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:15:51:17 [APPLICATION] Session verified successfully
+29/Jun/2024:15:51:17 [APPLICATION] Validating token signature
+29/Jun/2024:15:51:17 [APPLICATION] Token signature: undefined
+29/Jun/2024:15:51:17 [APPLICATION] Session deleted successfully
+29/Jun/2024:15:51:17 [APPLICATION] Session refreshed successfully
+29/Jun/2024:15:51:17 [APPLICATION] Validating refresh token format
+29/Jun/2024:15:51:17 [APPLICATION] Validating API key format
+29/Jun/2024:20:51:58 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:20:51:58 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:20:51:58 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:20:51:58 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:20:51:58 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:20:52:03 [APPLICATION] Validating API key format
+29/Jun/2024:20:52:03 [APPLICATION] Validating API key format
+29/Jun/2024:20:52:03 [APPLICATION] Validating refresh token format
+29/Jun/2024:20:52:03 [APPLICATION] Validating API key format
+29/Jun/2024:20:52:03 [APPLICATION] Validating token signature
+29/Jun/2024:20:52:03 [APPLICATION] Token signature: undefined
+29/Jun/2024:20:52:03 [APPLICATION] Validating refresh token format
+29/Jun/2024:20:52:03 [APPLICATION] Validating API key format
+29/Jun/2024:20:52:03 [APPLICATION] Validating token signature
+29/Jun/2024:20:52:03 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:20:52:03 [APPLICATION] Validating token signature
+29/Jun/2024:20:52:03 [APPLICATION] Token signature: token
+29/Jun/2024:20:52:03 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:20:52:03 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:20:52:03 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:20:52:03 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:20:52:03 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:20:52:03 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:20:52:03 [APPLICATION] Attempting to create a new product
+29/Jun/2024:20:52:03 [APPLICATION] Product created successfully
+29/Jun/2024:20:52:03 [APPLICATION] Attempting to create a new product
+29/Jun/2024:20:52:03 [APPLICATION] Attempting to create a new product
+29/Jun/2024:20:52:03 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:20:52:03 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:20:52:03 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:20:52:03 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:20:52:04 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:20:52:04 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:20:52:04 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:20:52:04 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:20:52:04 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:20:52:04 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:20:52:04 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:20:52:04 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:20:52:04 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:20:52:04 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:20:52:04 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:20:52:04 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:20:52:04 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:20:52:04 [APPLICATION] Session verified successfully
+29/Jun/2024:20:52:04 [APPLICATION] Validating token signature
+29/Jun/2024:20:52:04 [APPLICATION] Token signature: undefined
+29/Jun/2024:20:52:04 [APPLICATION] Session deleted successfully
+29/Jun/2024:20:52:04 [APPLICATION] Session refreshed successfully
+29/Jun/2024:20:52:04 [APPLICATION] Validating refresh token format
+29/Jun/2024:20:52:04 [APPLICATION] Validating API key format
+29/Jun/2024:20:54:37 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:20:54:37 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:20:54:37 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:20:54:37 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:20:54:37 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:20:54:41 [APPLICATION] Validating API key format
+29/Jun/2024:20:54:41 [APPLICATION] Validating API key format
+29/Jun/2024:20:54:41 [APPLICATION] Validating refresh token format
+29/Jun/2024:20:54:41 [APPLICATION] Validating API key format
+29/Jun/2024:20:54:42 [APPLICATION] Validating token signature
+29/Jun/2024:20:54:42 [APPLICATION] Token signature: undefined
+29/Jun/2024:20:54:42 [APPLICATION] Validating refresh token format
+29/Jun/2024:20:54:42 [APPLICATION] Validating API key format
+29/Jun/2024:20:54:42 [APPLICATION] Validating token signature
+29/Jun/2024:20:54:42 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:20:54:42 [APPLICATION] Validating token signature
+29/Jun/2024:20:54:42 [APPLICATION] Token signature: token
+29/Jun/2024:20:54:42 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:20:54:42 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:20:54:42 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:20:54:42 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:20:54:42 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:20:54:42 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:20:54:42 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to create a new product
+29/Jun/2024:20:54:42 [APPLICATION] Product created successfully
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to create a new product
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to create a new product
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:20:54:42 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:20:54:42 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:20:54:42 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:20:54:42 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:20:54:42 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:20:54:42 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:20:54:42 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:20:54:42 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:20:54:42 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:20:54:42 [APPLICATION] Session verified successfully
+29/Jun/2024:20:54:42 [APPLICATION] Validating token signature
+29/Jun/2024:20:54:42 [APPLICATION] Token signature: undefined
+29/Jun/2024:20:54:42 [APPLICATION] Session deleted successfully
+29/Jun/2024:20:54:42 [APPLICATION] Session refreshed successfully
+29/Jun/2024:20:54:42 [APPLICATION] Validating refresh token format
+29/Jun/2024:20:54:42 [APPLICATION] Validating API key format
+29/Jun/2024:20:54:42 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:07:17 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:21:07:17 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:21:07:17 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:21:07:17 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:21:07:17 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:21:07:21 [APPLICATION] Validating API key format
+29/Jun/2024:21:07:21 [APPLICATION] Validating API key format
+29/Jun/2024:21:07:21 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:07:21 [APPLICATION] Validating API key format
+29/Jun/2024:21:07:21 [APPLICATION] Validating token signature
+29/Jun/2024:21:07:21 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:07:21 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:07:21 [APPLICATION] Validating API key format
+29/Jun/2024:21:07:21 [APPLICATION] Validating token signature
+29/Jun/2024:21:07:21 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:21:07:21 [APPLICATION] Validating token signature
+29/Jun/2024:21:07:21 [APPLICATION] Token signature: token
+29/Jun/2024:21:07:21 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:21:07:21 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:21:07:21 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:21:07:21 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:21:07:21 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:21:07:21 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:07:21 [APPLICATION] Product created successfully
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:07:21 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:07:21 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:07:21 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:21:07:21 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:21:07:21 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:21:07:21 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:21:07:21 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:21:07:22 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:07:21 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:07:22 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:21:07:22 [APPLICATION] Session verified successfully
+29/Jun/2024:21:07:22 [APPLICATION] Validating token signature
+29/Jun/2024:21:07:22 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:07:22 [APPLICATION] Session deleted successfully
+29/Jun/2024:21:07:22 [APPLICATION] Session refreshed successfully
+29/Jun/2024:21:07:22 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:07:22 [APPLICATION] Validating API key format
+29/Jun/2024:21:07:22 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:09:42 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:21:09:42 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:21:09:42 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:21:09:42 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:21:09:42 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:21:09:47 [APPLICATION] Validating API key format
+29/Jun/2024:21:09:47 [APPLICATION] Validating API key format
+29/Jun/2024:21:09:47 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:09:47 [APPLICATION] Validating API key format
+29/Jun/2024:21:09:47 [APPLICATION] Validating token signature
+29/Jun/2024:21:09:47 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:09:47 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:09:47 [APPLICATION] Validating API key format
+29/Jun/2024:21:09:47 [APPLICATION] Validating token signature
+29/Jun/2024:21:09:47 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:21:09:47 [APPLICATION] Validating token signature
+29/Jun/2024:21:09:47 [APPLICATION] Token signature: token
+29/Jun/2024:21:09:47 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:21:09:47 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:21:09:47 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:21:09:47 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:21:09:47 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:21:09:47 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:09:47 [APPLICATION] Product created successfully
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:09:47 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:09:47 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:09:47 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:21:09:47 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:21:09:47 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:21:09:47 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:21:09:47 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:21:09:47 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:09:47 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:09:47 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:21:09:47 [APPLICATION] Session verified successfully
+29/Jun/2024:21:09:47 [APPLICATION] Validating token signature
+29/Jun/2024:21:09:47 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:09:47 [APPLICATION] Session deleted successfully
+29/Jun/2024:21:09:47 [APPLICATION] Session refreshed successfully
+29/Jun/2024:21:09:47 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:09:47 [APPLICATION] Validating API key format
+29/Jun/2024:21:11:02 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:21:11:02 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:21:11:02 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:21:11:02 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:21:11:02 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:21:11:06 [APPLICATION] Validating API key format
+29/Jun/2024:21:11:06 [APPLICATION] Validating API key format
+29/Jun/2024:21:11:06 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:11:06 [APPLICATION] Validating API key format
+29/Jun/2024:21:11:06 [APPLICATION] Validating token signature
+29/Jun/2024:21:11:06 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:11:06 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:11:06 [APPLICATION] Validating API key format
+29/Jun/2024:21:11:06 [APPLICATION] Validating token signature
+29/Jun/2024:21:11:06 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:21:11:06 [APPLICATION] Validating token signature
+29/Jun/2024:21:11:06 [APPLICATION] Token signature: token
+29/Jun/2024:21:11:07 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:21:11:07 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:21:11:07 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:21:11:07 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:21:11:07 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:21:11:07 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:11:07 [APPLICATION] Product created successfully
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:11:07 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:11:07 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:11:07 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:21:11:07 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:21:11:07 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:21:11:07 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:21:11:07 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:21:11:07 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:11:07 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:21:11:07 [APPLICATION] Session verified successfully
+29/Jun/2024:21:11:07 [APPLICATION] Validating token signature
+29/Jun/2024:21:11:07 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:11:07 [APPLICATION] Session deleted successfully
+29/Jun/2024:21:11:07 [APPLICATION] Session refreshed successfully
+29/Jun/2024:21:11:07 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:11:07 [APPLICATION] Validating API key format
+29/Jun/2024:21:11:07 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:11:07 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:13:02 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:21:13:02 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:21:13:02 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:21:13:02 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:21:13:02 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:21:13:06 [APPLICATION] Validating API key format
+29/Jun/2024:21:13:06 [APPLICATION] Validating API key format
+29/Jun/2024:21:13:06 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:13:06 [APPLICATION] Validating API key format
+29/Jun/2024:21:13:06 [APPLICATION] Validating token signature
+29/Jun/2024:21:13:06 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:13:06 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:13:06 [APPLICATION] Validating API key format
+29/Jun/2024:21:13:06 [APPLICATION] Validating token signature
+29/Jun/2024:21:13:06 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:21:13:06 [APPLICATION] Validating token signature
+29/Jun/2024:21:13:06 [APPLICATION] Token signature: token
+29/Jun/2024:21:13:07 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:21:13:07 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:21:13:07 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:21:13:07 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:21:13:07 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:21:13:07 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:13:07 [APPLICATION] Product created successfully
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:13:07 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:13:07 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:13:07 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:21:13:07 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:21:13:07 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:21:13:07 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:21:13:07 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:21:13:07 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:13:07 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:13:07 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:21:13:07 [APPLICATION] Session verified successfully
+29/Jun/2024:21:13:07 [APPLICATION] Validating token signature
+29/Jun/2024:21:13:07 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:13:07 [APPLICATION] Session deleted successfully
+29/Jun/2024:21:13:07 [APPLICATION] Session refreshed successfully
+29/Jun/2024:21:13:07 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:13:07 [APPLICATION] Validating API key format
+29/Jun/2024:21:13:07 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:16:09 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:21:16:09 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:21:16:09 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:21:16:09 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:21:16:09 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:21:16:13 [APPLICATION] Validating API key format
+29/Jun/2024:21:16:14 [APPLICATION] Validating API key format
+29/Jun/2024:21:16:14 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:16:14 [APPLICATION] Validating API key format
+29/Jun/2024:21:16:14 [APPLICATION] Validating token signature
+29/Jun/2024:21:16:14 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:16:14 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:16:14 [APPLICATION] Validating API key format
+29/Jun/2024:21:16:14 [APPLICATION] Validating token signature
+29/Jun/2024:21:16:14 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:21:16:14 [APPLICATION] Validating token signature
+29/Jun/2024:21:16:14 [APPLICATION] Token signature: token
+29/Jun/2024:21:16:14 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:16:14 [APPLICATION] Product created successfully
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:16:14 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:16:14 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:16:14 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:21:16:14 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:21:16:14 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:21:16:14 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:21:16:14 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:21:16:14 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:21:16:14 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:21:16:14 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:21:16:14 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:21:16:14 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:21:16:14 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:16:14 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:16:14 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:21:16:14 [APPLICATION] Session verified successfully
+29/Jun/2024:21:16:14 [APPLICATION] Validating token signature
+29/Jun/2024:21:16:14 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:16:14 [APPLICATION] Session deleted successfully
+29/Jun/2024:21:16:14 [APPLICATION] Session refreshed successfully
+29/Jun/2024:21:16:14 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:16:14 [APPLICATION] Validating API key format
+29/Jun/2024:21:16:14 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:20:15 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:21:20:15 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:21:20:15 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:21:20:15 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:21:20:15 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:21:20:19 [APPLICATION] Validating API key format
+29/Jun/2024:21:20:19 [APPLICATION] Validating API key format
+29/Jun/2024:21:20:19 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:20:19 [APPLICATION] Validating API key format
+29/Jun/2024:21:20:19 [APPLICATION] Validating token signature
+29/Jun/2024:21:20:19 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:20:19 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:20:19 [APPLICATION] Validating API key format
+29/Jun/2024:21:20:19 [APPLICATION] Validating token signature
+29/Jun/2024:21:20:19 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:21:20:19 [APPLICATION] Validating token signature
+29/Jun/2024:21:20:19 [APPLICATION] Token signature: token
+29/Jun/2024:21:20:19 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:21:20:19 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:21:20:19 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:21:20:19 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:21:20:19 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:21:20:19 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:20:19 [APPLICATION] Product created successfully
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:20:19 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:20:19 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:20:19 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:21:20:19 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:21:20:19 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:21:20:19 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:21:20:19 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:21:20:19 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:20:19 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:20:19 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:21:20:19 [APPLICATION] Session verified successfully
+29/Jun/2024:21:20:19 [APPLICATION] Validating token signature
+29/Jun/2024:21:20:19 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:20:20 [APPLICATION] Session deleted successfully
+29/Jun/2024:21:20:20 [APPLICATION] Session refreshed successfully
+29/Jun/2024:21:20:20 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:20:20 [APPLICATION] Validating API key format
+29/Jun/2024:21:20:20 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:21:42 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:21:21:42 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:21:21:42 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:21:21:42 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:21:21:42 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:21:21:46 [APPLICATION] Validating API key format
+29/Jun/2024:21:21:46 [APPLICATION] Validating API key format
+29/Jun/2024:21:21:46 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:21:46 [APPLICATION] Validating API key format
+29/Jun/2024:21:21:46 [APPLICATION] Validating token signature
+29/Jun/2024:21:21:46 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:21:46 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:21:46 [APPLICATION] Validating API key format
+29/Jun/2024:21:21:46 [APPLICATION] Validating token signature
+29/Jun/2024:21:21:46 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:21:21:46 [APPLICATION] Validating token signature
+29/Jun/2024:21:21:46 [APPLICATION] Token signature: token
+29/Jun/2024:21:21:46 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:21:21:46 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:21:21:46 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:21:21:46 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:21:21:46 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:21:21:46 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:21:46 [APPLICATION] Product created successfully
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:21:46 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:21:46 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:21:46 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:21:21:46 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:21:21:46 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:21:21:46 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:21:21:46 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:21:21:46 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:21:46 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:21:46 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:21:21:46 [APPLICATION] Session verified successfully
+29/Jun/2024:21:21:47 [APPLICATION] Validating token signature
+29/Jun/2024:21:21:47 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:21:47 [APPLICATION] Session deleted successfully
+29/Jun/2024:21:21:47 [APPLICATION] Session refreshed successfully
+29/Jun/2024:21:21:47 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:21:47 [APPLICATION] Validating API key format
+29/Jun/2024:21:21:47 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:23:01 [APPLICATION] Email sent successfully to test@example.com with subject "Verify Your Email"
+29/Jun/2024:21:23:01 [APPLICATION] Email sent successfully to reset@example.com with subject "Password Reset"
+29/Jun/2024:21:23:01 [APPLICATION] Email sent successfully to basket@example.com with subject "Your Basket"
+29/Jun/2024:21:23:01 [APPLICATION] Email sent successfully to campaign@example.com with subject "New Campaign"
+29/Jun/2024:21:23:01 [APPLICATION] Email sent successfully to service@example.com with subject "Help Needed"
+29/Jun/2024:21:23:05 [APPLICATION] Validating API key format
+29/Jun/2024:21:23:05 [APPLICATION] Validating API key format
+29/Jun/2024:21:23:05 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:23:05 [APPLICATION] Validating API key format
+29/Jun/2024:21:23:05 [APPLICATION] Validating token signature
+29/Jun/2024:21:23:05 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:23:05 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:23:05 [APPLICATION] Validating API key format
+29/Jun/2024:21:23:05 [APPLICATION] Validating token signature
+29/Jun/2024:21:23:05 [APPLICATION] Token signature: eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+29/Jun/2024:21:23:05 [APPLICATION] Validating token signature
+29/Jun/2024:21:23:05 [APPLICATION] Token signature: token
+29/Jun/2024:21:23:06 [APPLICATION] Email sent successfully to mute@localhost with subject "Verify Your Email"
+29/Jun/2024:21:23:06 [APPLICATION] Email sent successfully to mute@localhost with subject "Password Reset"
+29/Jun/2024:21:23:06 [APPLICATION] Email sent successfully to mute@localhost with subject "Your Basket"
+29/Jun/2024:21:23:06 [APPLICATION] Email sent successfully to mute@localhost with subject "New Campaign"
+29/Jun/2024:21:23:06 [APPLICATION] Email sent successfully to mute@localhost with subject "Help Needed"
+29/Jun/2024:21:23:06 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:23:06 [APPLICATION] Session and refresh token created successfully
+29/Jun/2024:21:23:06 [APPLICATION] Session verified successfully
+29/Jun/2024:21:23:06 [APPLICATION] Validating token signature
+29/Jun/2024:21:23:06 [APPLICATION] Token signature: undefined
+29/Jun/2024:21:23:06 [APPLICATION] Session deleted successfully
+29/Jun/2024:21:23:06 [APPLICATION] Session refreshed successfully
+29/Jun/2024:21:23:06 [APPLICATION] Validating refresh token format
+29/Jun/2024:21:23:06 [APPLICATION] Validating API key format
+29/Jun/2024:21:23:06 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:23:06 [APPLICATION] Connected to MySQL database successfully
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:23:06 [APPLICATION] Product created successfully
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to create a new product
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:23:06 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to retrieve product with ID 999
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:23:06 [APPLICATION] Product with ID 1 updated successfully
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to retrieve product with ID 1
+29/Jun/2024:21:23:06 [APPLICATION] Product with ID 1 retrieved successfully
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to update product with ID undefined
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to update product with ID 1
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to delete product with ID 5
+29/Jun/2024:21:23:06 [APPLICATION] Product with ID 5 deleted successfully
+29/Jun/2024:21:23:06 [APPLICATION] Attempting to retrieve product with ID 5
+29/Jun/2024:21:23:06 [APPLICATION] Fetching products bought with product ID 1
+29/Jun/2024:21:23:06 [APPLICATION] Products bought with product ID 1 fetched successfully
+29/Jun/2024:21:23:06 [APPLICATION] Connected to MySQL database successfully

@@ -84,7 +84,7 @@ class ProductService implements Product_ControllerModel {
 			!validationService.checkNameFormat(data?.Name) ||
 			!data.Description ||
 			!validationService.checkPriceFormat(data?.Price) ||
-			!validationService.checkStockFormat(data?.Stock)
+			!validationService.checkIsWholePositiveNumberFormat(data?.Stock)
 		) {
 			loggingService.error("Invalid product data provided for creation", __filename);
 			return false;
@@ -129,7 +129,10 @@ class ProductService implements Product_ControllerModel {
 			loggingService.error("Invalid price format", __filename);
 			return false;
 		}
-		if (data.Stock !== undefined && !validationService.checkStockFormat(data.Stock)) {
+		if (
+			data.Stock !== undefined &&
+			!validationService.checkIsWholePositiveNumberFormat(data.Stock)
+		) {
 			loggingService.error("Invalid stock format", __filename);
 			return false;
 		}

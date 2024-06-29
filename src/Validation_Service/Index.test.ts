@@ -85,25 +85,25 @@ describe("ValidationService", () => {
 	describe("checkStockFormat", () => {
 		it("should return true for a valid stock format", () => {
 			const validStock = 100;
-			const result = validationService.checkStockFormat(validStock);
+			const result = validationService.checkIsWholePositiveNumberFormat(validStock);
 			expect(result).toBe(true);
 		});
 
 		it("should return false for an invalid stock format", () => {
 			const invalidStock = "not a number";
-			const result = validationService.checkStockFormat(invalidStock as any);
+			const result = validationService.checkIsWholePositiveNumberFormat(invalidStock as any);
 			expect(result).toBe(false);
 		});
 
 		it("should return false for a negative stock value", () => {
 			const negativeStock = -10;
-			const result = validationService.checkStockFormat(negativeStock);
+			const result = validationService.checkIsWholePositiveNumberFormat(negativeStock);
 			expect(result).toBe(false);
 		});
 
 		it("should return false for a floating point value", () => {
 			const negativeStock = 1.15;
-			const result = validationService.checkStockFormat(negativeStock);
+			const result = validationService.checkIsWholePositiveNumberFormat(negativeStock);
 			expect(result).toBe(false);
 		});
 	});

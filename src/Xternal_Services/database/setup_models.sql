@@ -121,3 +121,27 @@ CREATE TABLE `Auth` (
   FOREIGN KEY (`AccountID`) REFERENCES `Account`(`ID`),
   INDEX `idx_auth_account` (`AccountID`)
 );
+
+CREATE TABLE Discount (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Type ENUM('MULTIBUY', 'MULTIITEM', 'PERCENTAGEOFF', 'PERCENTAGEOFFTOTAL') NOT NULL,
+  ProductID INT,
+  Code VARCHAR(255) UNIQUE,
+  Quantity INT NOT NULL,
+  Discount DECIMAL(10, 2) NOT NULL,
+  OtherProductID INT NULL,
+  OtherProductQuantity INT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (ProductID) REFERENCES Product(ID),
+  FOREIGN KEY (OtherProductID) REFERENCES Product(ID),
+  INDEX idx_discount_product (ProductID),
+  INDEX idx_discount_other_product (OtherProductID),
+  CHECK (
+    (Type = 'MULTIBUY' AND ProductID IS NOT NULL AND Quantity IS NOT NULL AND Discount IS NOT NULL) OR
+    (Type = 'MULTIITEM' AND ProductID IS NOT NULL AND OtherProductID IS NOT NULL AND OtherProductQuantity IS NOT NULL AND Discount IS NOT NULL) OR
+    (Type = 'PERCENTAGEOFF' AND ProductID IS NOT NULL AND Discount IS NOT NULL) OR
+    (Type = 'PERCENTAGEOFFTOTAL' AND Discount IS NOT NULL)
+  )
+);
+
