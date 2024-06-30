@@ -6,6 +6,7 @@ import redis from "../Xternal_Services/redis/db";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import validationService from "../Validation_Service/Index.controller";
+import { createHmac } from "crypto";
 
 jest.mock("../Xternal_Services/database/db");
 jest.mock("../Xternal_Services/redis/db", () => ({
@@ -26,7 +27,16 @@ describe("AuthService", () => {
 		jwtVerifyStub: SinonStub,
 		loggingServiceStub: SinonStub,
 		checkEmailFormatStub: SinonStub,
-		checkPasswordFormatStub: SinonStub;
+		checkPasswordFormatStub: SinonStub,
+		SECRET_KEY: string,
+		REFRESH_SECRET_KEY: string,
+		MAGIC_SIGNIN_KEY: string;
+
+	beforeAll(() => {
+		if (!process.env.MAGIC_SIGNIN_KEY) {
+			process.env.MAGIC_SIGNIN_KEY = "VerySecretMagicKey";
+		}
+	});
 
 	beforeEach(() => {
 		queryStub = sinon.stub(db, "query");
@@ -42,24 +52,49 @@ describe("AuthService", () => {
 			.stub(validationService, "checkPasswordFormat")
 			.returns(true);
 
-		process.env.SECRET_KEY = "mock_jwt_secret";
-		process.env.REFRESH_SECRET_KEY = "mock_refresh_secret";
+		SECRET_KEY = process.env.SECRET_KEY || "";
+		REFRESH_SECRET_KEY = process.env.REFRESH_SECRET_KEY || "";
+		MAGIC_SIGNIN_KEY = process.env.MAGIC_SIGNIN_KEY || "";
 	});
 
 	afterEach(() => {
 		sinon.restore();
 	});
 
-	describe("createSession", () => {
-		it("should create a session with valid credentials", async () => {
-			const mockUserData = [{ ID: 1, Password: "hashedPassword" }];
+	describe("login", () => {
+		it("should log in with valid credentials", async () => {
+			const mockUserData = [{ ID: 1, Password: "hashed_password" }];
 			queryStub.resolves(mockUserData);
 			bcryptCompareStub.resolves(true);
+			jwtSignStub.returns("mock_session_token");
+
+			const result = await authService.login("user@example.com", "password123");
+			expect(result).toBe(
+				JSON.stringify({
+					sessionToken: "mock_session_token",
+					refreshToken: "mock_session_token",
+				})
+			);
+		});
+
+		it("should fail login with invalid credentials", async () => {
+			queryStub.resolves([]);
+			bcryptCompareStub.resolves(false);
+
+			const result = await authService.login("user@example.com", "wrong_password");
+			expect(result).toBe(false);
+		});
+	});
+
+	describe("createSession", () => {
+		it("should create a session with valid credentials", async () => {
+			const mockUserData = [{ ID: 1 }];
+			queryStub.resolves(mockUserData);
 			jwtSignStub.onFirstCall().returns("mockSessionToken");
 			jwtSignStub.onSecondCall().returns("mockRefreshToken");
 			redisSetStub.resolves("OK");
 
-			const result = await authService.createSession("test@example.com", "password123");
+			const result = await authService.createSession("test@example.com");
 
 			expect(result).toBe(
 				JSON.stringify({
@@ -68,13 +103,11 @@ describe("AuthService", () => {
 				})
 			);
 			expect(checkEmailFormatStub.calledOnceWith("test@example.com")).toBe(true);
-			expect(checkPasswordFormatStub.calledOnceWith("password123")).toBe(true);
 			expect(
-				queryStub.calledOnceWith("SELECT ID, Password FROM Account WHERE Email = ?", [
+				queryStub.calledOnceWith("SELECT ID FROM Account WHERE Email = ?", [
 					"test@example.com",
 				])
 			).toBe(true);
-			expect(bcryptCompareStub.calledOnceWith("password123", "hashedPassword")).toBe(true);
 			expect(jwtSignStub.calledTwice).toBe(true);
 			expect(redisSetStub.calledTwice).toBe(true);
 		});
@@ -82,17 +115,7 @@ describe("AuthService", () => {
 		it("should return false with invalid email", async () => {
 			queryStub.resolves([]);
 
-			const result = await authService.createSession("test@example.com", "password123");
-
-			expect(result).toBe(false);
-			expect(loggingServiceStub.calledOnce).toBe(true);
-		});
-
-		it("should return false with invalid password", async () => {
-			queryStub.resolves([{ ID: 1, Password: "hashedPassword" }]);
-			bcryptCompareStub.resolves(false);
-
-			const result = await authService.createSession("test@example.com", "wrongpassword");
+			const result = await authService.createSession("test@example.com");
 
 			expect(result).toBe(false);
 			expect(loggingServiceStub.calledOnce).toBe(true);
@@ -157,11 +180,91 @@ describe("AuthService", () => {
 
 		it("should return false for an invalid refresh token", async () => {
 			redisGetStub.resolves(null);
+			sinon.stub(validationService, "checkRefreshTokenFormat").returns(false);
 
 			const result = await authService.refreshSession("invalidRefreshToken");
 
 			expect(result).toBe(false);
-			// expect(loggingServiceStub.calledOnce).toBe(true); // I genuinely don't know why this is failing
+			expect(loggingServiceStub.calledOnce).toBe(true);
+			expect(loggingServiceStub.firstCall.args[0]).toBe("Invalid refresh token format");
+		});
+	});
+
+	describe("generateMagicToken", () => {
+		it("should generate a valid magic token", () => {
+			const email = "test@example.com";
+			const issuedAt = 1719765669814;
+			const expiresAt = issuedAt + 900000;
+			const encodedEmail = Buffer.from(email).toString("base64");
+			const data = `${encodedEmail}.${issuedAt}.${expiresAt}`;
+			const hash = createHmac("sha256", MAGIC_SIGNIN_KEY).update(data).digest("hex");
+			const expectedToken = `${data}.${hash}`;
+
+			sinon.stub(Date, "now").returns(issuedAt);
+
+			const result = authService.generateMagicToken(email);
+
+			expect(result).toBe(expectedToken);
+
+			(Date.now as sinon.SinonStub).restore();
+		});
+
+		it("should return an empty string if email is not provided", () => {
+			const result = authService.generateMagicToken("");
+			expect(result).toBe("");
+		});
+	});
+
+	describe("verifyMagicToken", () => {
+		it("should return the email if the token is valid", () => {
+			const email = "user@example.com";
+			const issuedAt = Date.now();
+			const expiresAt = issuedAt + 900000; // 15 minutes in milliseconds
+			const encodedEmail = Buffer.from(email).toString("base64");
+			const data = `${encodedEmail}.${issuedAt}.${expiresAt}`;
+
+			// Use the same MAGIC_SIGNIN_KEY as in the AuthService
+			const testMagicSignInKey = "VerySecretMagicKey";
+			process.env.MAGIC_SIGNIN_KEY = testMagicSignInKey;
+
+			const hash = createHmac("sha256", testMagicSignInKey).update(data).digest("hex");
+			const validToken = `${data}.${hash}`;
+
+			const dateNowStub = sinon.stub(Date, "now").returns(issuedAt);
+
+			console.log("Test MAGIC_SIGNIN_KEY:", testMagicSignInKey);
+			console.log("Generated token:", validToken);
+
+			const result = authService.verifyMagicToken(validToken);
+
+			console.log("Verification result:", result);
+
+			expect(result).toBe(email);
+
+			dateNowStub.restore();
+		});
+
+		it("should return false for an invalid token", () => {
+			const result = authService.verifyMagicToken("invalid.token");
+			expect(result).toBe(false);
+		});
+
+		it("should return false for an empty token", () => {
+			const result = authService.verifyMagicToken("");
+			expect(result).toBe(false);
+		});
+
+		it("should return false for an expired token", () => {
+			const email = "user@example.com";
+			const issuedAt = Date.now() - 1000000;
+			const expiresAt = issuedAt + 900000;
+			const data = `${email}.${issuedAt}.${expiresAt}`;
+			const hash = createHmac("sha256", MAGIC_SIGNIN_KEY).update(data).digest("hex");
+			const expiredToken = `${data}.${hash}`;
+
+			const result = authService.verifyMagicToken(expiredToken);
+
+			expect(result).toBe(false);
 		});
 	});
 });
