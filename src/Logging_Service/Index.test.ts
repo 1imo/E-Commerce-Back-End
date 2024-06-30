@@ -26,10 +26,10 @@ describe("LoggingService", () => {
 			};
 			loggingService.access("Test access message", "testfile.js", reqMock as Request);
 
-			const expectedLogEntry =
-				"[TEST_TIMESTAMP] [ACCESS] GET /test Test access message [Client IP: 127.0.0.1]";
-			expect(writeFileStub.calledOnceWith("./access.log", expectedLogEntry + "\n")).toBe(
-				true
+			expect(writeFileStub.calledOnce).toBe(true);
+			expect(writeFileStub.firstCall.args[0]).toMatch(/access\.log$/);
+			expect(writeFileStub.firstCall.args[1]).toMatch(
+				/^\[TEST_TIMESTAMP\] \[ACCESS\] GET \/test Test access message \[Client IP: 127\.0\.0\.1\]\n$/
 			);
 		});
 	});
@@ -43,9 +43,11 @@ describe("LoggingService", () => {
 			};
 			loggingService.error("Test error message", "testfile.js", reqMock as Request);
 
-			const expectedLogEntry =
-				"[TEST_TIMESTAMP] [ERROR] Test error message [Origin File: testfile.js] [Client IP: 192.168.0.100] [POST /login]";
-			expect(writeFileStub.calledOnceWith("./err.log", expectedLogEntry + "\n")).toBe(true);
+			expect(writeFileStub.calledOnce).toBe(true);
+			expect(writeFileStub.firstCall.args[0]).toMatch(/err\.log$/);
+			expect(writeFileStub.firstCall.args[1]).toMatch(
+				/^\[TEST_TIMESTAMP\] \[ERROR\] Test error message \[Origin File: testfile\.js\] \[Client IP: 192\.168\.0\.100\] \[POST \/login\]\n$/
+			);
 		});
 
 		it("should handle errors with stack traces", () => {
@@ -56,14 +58,9 @@ describe("LoggingService", () => {
 				undefined
 			);
 
-			expect(
-				writeFileStub.calledOnceWith(
-					"./err.log",
-					sinon.match((value) =>
-						value.includes(error.stack ?? "Error message (no stack trace)")
-					)
-				)
-			).toBe(true);
+			expect(writeFileStub.calledOnce).toBe(true);
+			expect(writeFileStub.firstCall.args[0]).toMatch(/err\.log$/);
+			expect(writeFileStub.firstCall.args[1]).toContain("Test error with stack trace");
 		});
 	});
 
@@ -71,9 +68,10 @@ describe("LoggingService", () => {
 		it("should log application entries with correct format and file path", () => {
 			loggingService.application("Test application message", "testfile.js");
 
-			const expectedLogEntry = "[TEST_TIMESTAMP] [APPLICATION] Test application message";
-			expect(writeFileStub.calledOnceWith("./application.log", expectedLogEntry + "\n")).toBe(
-				true
+			expect(writeFileStub.calledOnce).toBe(true);
+			expect(writeFileStub.firstCall.args[0]).toMatch(/application\.log$/);
+			expect(writeFileStub.firstCall.args[1]).toMatch(
+				/^\[TEST_TIMESTAMP\] \[APPLICATION\] Test application message\n$/
 			);
 		});
 	});

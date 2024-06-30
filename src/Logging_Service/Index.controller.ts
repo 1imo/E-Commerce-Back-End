@@ -96,7 +96,7 @@ export class LoggingService implements LoggingService_ControllerModel {
 		const logEntry = `${this.timestamp()} [ACCESS] ${req?.method} ${
 			req?.originalUrl
 		} ${message} [Client IP: ${req?.ip}]`; // Removing originating filepath to prevent fingerprinting.
-		this.writeToFile("./access.log", logEntry);
+		this.writeToFile("/access.log", logEntry);
 	}
 
 	public error(
@@ -113,12 +113,12 @@ export class LoggingService implements LoggingService_ControllerModel {
 			req?.ip
 		}] [${req?.method} ${req?.originalUrl}]`;
 
-		this.writeToFile("./err.log", logEntry);
+		this.writeToFile("/err.log", logEntry);
 	}
 
 	public application(message: string, originFilePath: string): void {
 		const logEntry = `${this.timestamp()} [APPLICATION] ${message}`;
-		this.writeToFile("./application.log", logEntry);
+		this.writeToFile("/application.log", logEntry);
 	}
 
 	public timestamp(): string {
@@ -135,7 +135,7 @@ export class LoggingService implements LoggingService_ControllerModel {
 	}
 
 	public writeToFile(filePath: string, message: string): void {
-		fs.appendFile(filePath, message + "\n", (err: NodeJS.ErrnoException | null) => {
+		fs.appendFile(__dirname + filePath, message + "\n", (err: NodeJS.ErrnoException | null) => {
 			if (err) {
 				console.error(`Error writing to log file ${filePath}:`, err);
 			}
