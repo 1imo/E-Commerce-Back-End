@@ -92,8 +92,6 @@ class AuthService implements AuthService_ControllerModel {
 		if (!this.SECRET_KEY || !this.REFRESH_SECRET_KEY || !this.MAGIC_SIGNIN_KEY) {
 			throw new Error("Secret keys are not defined in environment variables");
 		}
-
-		console.log("AuthService MAGIC_SIGNIN_KEY:", this.MAGIC_SIGNIN_KEY);
 	}
 
 	public async login(email: string, password: string): Promise<string | boolean> {
@@ -242,53 +240,29 @@ class AuthService implements AuthService_ControllerModel {
 	}
 
 	public verifyMagicToken(token: string): string | boolean {
-		console.log("Entering verifyMagicToken method");
 		try {
-			if (!token) {
-				console.log("Token is empty or undefined");
-				return false;
-			}
+			if (!token) return false;
+
 			const parts = token.split(".");
-			console.log("Token parts:", parts);
-			if (parts.length !== 4) {
-				console.log("Invalid token format: expected 4 parts, got", parts.length);
-				return false;
-			}
+
+			if (parts.length !== 4) return false;
 
 			const [encodedEmail, issuedAt, expiresAt, hash] = parts;
 			const email = Buffer.from(encodedEmail, "base64").toString("utf-8");
 
-			console.log("Verifying token:", token);
-			console.log("MAGIC_SIGNIN_KEY:", this.MAGIC_SIGNIN_KEY);
-			console.log("Email:", email);
-			console.log("IssuedAt:", issuedAt);
-			console.log("ExpiresAt:", expiresAt);
-			console.log("Hash:", hash);
-			console.log("Current time:", Date.now());
-
-			if (Date.now() > parseInt(expiresAt, 10)) {
-				console.log("Token expired");
-				return false;
-			}
+			if (Date.now() > parseInt(expiresAt, 10)) return false;
 
 			const data = `${encodedEmail}.${issuedAt}.${expiresAt}`;
-			console.log("Data for hash computation:", data);
 			const validHash = createHmac("sha256", this.MAGIC_SIGNIN_KEY)
 				.update(data)
 				.digest("hex");
 
-			console.log("Computed hash:", validHash);
-			console.log("Token hash:", hash);
-
 			if (hash === validHash) {
-				console.log("Token valid, returning email");
 				return email;
 			} else {
-				console.log("Invalid hash");
 				return false;
 			}
 		} catch (error) {
-			console.error("Error in verifyMagicToken:", error);
 			loggingService.error(`Error verifying magic token: ${error}`, __filename);
 			return false;
 		}

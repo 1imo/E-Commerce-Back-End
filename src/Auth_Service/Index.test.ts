@@ -219,11 +219,10 @@ describe("AuthService", () => {
 		it("should return the email if the token is valid", () => {
 			const email = "user@example.com";
 			const issuedAt = Date.now();
-			const expiresAt = issuedAt + 900000; // 15 minutes in milliseconds
+			const expiresAt = issuedAt + 900000;
 			const encodedEmail = Buffer.from(email).toString("base64");
 			const data = `${encodedEmail}.${issuedAt}.${expiresAt}`;
 
-			// Use the same MAGIC_SIGNIN_KEY as in the AuthService
 			const testMagicSignInKey = "VerySecretMagicKey";
 			process.env.MAGIC_SIGNIN_KEY = testMagicSignInKey;
 
@@ -232,12 +231,7 @@ describe("AuthService", () => {
 
 			const dateNowStub = sinon.stub(Date, "now").returns(issuedAt);
 
-			console.log("Test MAGIC_SIGNIN_KEY:", testMagicSignInKey);
-			console.log("Generated token:", validToken);
-
 			const result = authService.verifyMagicToken(validToken);
-
-			console.log("Verification result:", result);
 
 			expect(result).toBe(email);
 

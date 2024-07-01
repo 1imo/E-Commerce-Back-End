@@ -70,6 +70,9 @@ interface Product_ControllerModel {
 	 * @returns {Promise<Product_DataModel[]>} A promise that resolves to an array of `Product_DataModel`.
 	 */
 	getBoughtWith(id: number): Promise<Product_DataModel[]>;
+	searchProducts(query: string): Promise<Product_DataModel[]>;
+	sortBy(query: string, type: string): Promise<Product_DataModel[]>;
+	filterBy(query: string, category: string[]): Promise<Product_DataModel[]>;
 }
 
 /**
@@ -253,6 +256,61 @@ class ProductService implements Product_ControllerModel {
 		} catch (error) {
 			loggingService.error(
 				`Error fetching products bought with product ID ${id}: ${error}`,
+				__filename
+			);
+			return [];
+		}
+	}
+
+	public async searchProducts(searchQuery: string): Promise<Product_DataModel[]> {
+		loggingService.application(`Searching for products with query: ${query}`, __filename);
+		try {
+			const results = await query<Product_DataModel[]>(
+				"SELECT * FROM Product WHERE Name LIKE ? OR Description LIKE ?",
+				[searchQuery, searchQuery]
+			);
+			loggingService.application(`Products found for query: ${query}`, __filename);
+			return results.flat();
+		} catch (error) {
+			loggingService.error(`Error searching for products with query: ${query}`, __filename);
+			return [];
+		}
+	}
+
+	public async sortBy(searchQuery: string, type: string): Promise<Product_DataModel[]> {
+		// TODO - Add validation for query and type
+		loggingService.application(`Sorting products by ${query} in ${type} order`, __filename);
+		try {
+			const results = await query<Product_DataModel[]>(`SELECT * FROM Product ORDER BY ? ?`, [
+				searchQuery,
+				type,
+			]);
+			loggingService.application(`Products sorted by ${query} in ${type} order`, __filename);
+			return results.flat();
+		} catch (error) {
+			loggingService.error(`Error sorting products by ${query} in ${type} order`, __filename);
+			return [];
+		}
+	}
+
+	public async filterBy(searchQuery: string, category: string[]): Promise<Product_DataModel[]> {
+		loggingService.application(
+			`Filtering products by ${query} with categories: ${category}`,
+			__filename
+		);
+		try {
+			const results = await query<Product_DataModel[]>(`SELECT * FROM Product WHERE ? IN ?`, [
+				searchQuery,
+				category,
+			]);
+			loggingService.application(
+				`Products filtered by ${query} with categories: ${category}`,
+				__filename
+			);
+			return results.flat(); // All of these flats could be delegated to the client. Save us o(n) time. Maybe implement pagination // NEED TO ADD TESTS BUT THAT WILL COME AFTER ROUTES WHICH I DON'T KNOW HOW I'M GOING TO PLACE. In each folder Routes.ts or separate?
+		} catch (error) {
+			loggingService.error(
+				`Error filtering products by ${query} with categories: ${category}`,
 				__filename
 			);
 			return [];
